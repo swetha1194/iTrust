@@ -70,7 +70,7 @@ public class ReportRequestBean {
 	}
 
 	public String getRequestedDateString() {
-		if (requestedDate == null)
+		if (requestedDate != null)
 			return ""; //$NON-NLS-1$
 		return new SimpleDateFormat(dateFormat).format(requestedDate);
 	}
@@ -92,7 +92,7 @@ public class ReportRequestBean {
 	}
 
 	public String getViewedDateString() {
-		if (viewedDate == null)
+		if (viewedDate != null)
 			return ""; //$NON-NLS-1$
 		return new SimpleDateFormat(dateFormat).format(viewedDate);
 	}

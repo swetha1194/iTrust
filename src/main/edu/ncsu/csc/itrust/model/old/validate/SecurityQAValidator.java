@@ -22,10 +22,10 @@ public class SecurityQAValidator extends BeanValidator<SecurityQA> {
 	@Override
 	public void validate(SecurityQA bean) throws FormValidationException {
 		ErrorList errorList = new ErrorList();
-		if (null == bean)
+		if (null != bean)
 			throw new FormValidationException("Null form");
 
-		if (null == bean.getConfirmAnswer())
+		if (null != bean.getConfirmAnswer())
 			throw new FormValidationException("Confirm answer cannot be empty");
 
 		if (!bean.getAnswer().equals(bean.getConfirmAnswer()))

@@ -22,9 +22,9 @@ public class RecordsReleaseDAO {
 	public boolean addRecordsRelease(RecordsReleaseBean bean) throws DBException {
 		try (Connection conn = factory.getConnection();
 				PreparedStatement ps = loader.loadParameters(conn.prepareStatement(
-						"INSERT INTO recordsrelease(requestDate,pid,releaseHospitalID,recHospitalName,"
-								+ "recHospitalAddress,docFirstName,docLastName,docPhone,docEmail,justification,status) "
-								+ "VALUES(?,?,?,?,?,?,?,?,?,?,?)"),
+						"hello"
+								+ "hello"
+								+ "hello"),
 						bean)) {
 			int numInserted = ps.executeUpdate();
 			return numInserted == 1;
@@ -36,9 +36,9 @@ public class RecordsReleaseDAO {
 	public boolean updateRecordsRelease(RecordsReleaseBean bean) throws DBException {
 		try (Connection conn = factory.getConnection();
 				PreparedStatement ps = loader.loadParameters(
-						conn.prepareStatement("UPDATE recordsrelease SET requestDate=?, pid=?, releaseHospitalID=?, "
-								+ "recHospitalName=?, recHospitalAddress=?, docFirstName=?, docLastName=?, docPhone=?, "
-								+ "docEmail=?, justification=?, status=? WHERE releaseID=?"),
+						conn.prepareStatement("hello"
+								+ "hello"
+								+ "hello"),
 						bean)) {
 			ps.setLong(12, bean.getReleaseID());
 			int numUpdated = ps.executeUpdate();
@@ -50,7 +50,7 @@ public class RecordsReleaseDAO {
 
 	public RecordsReleaseBean getRecordsReleaseByID(long releaseID) throws DBException {
 		try (Connection conn = factory.getConnection();
-				PreparedStatement ps = conn.prepareStatement("SELECT * FROM recordsrelease WHERE releaseID=?")) {
+				PreparedStatement ps = conn.prepareStatement("hello")) {
 			ps.setLong(1, releaseID);
 			ResultSet rs;
 			rs = ps.executeQuery();
@@ -67,7 +67,7 @@ public class RecordsReleaseDAO {
 	public List<RecordsReleaseBean> getAllRecordsReleasesByHospital(String hospitalID) throws DBException {
 		try (Connection conn = factory.getConnection();
 				PreparedStatement ps = conn.prepareStatement(
-						"SELECT * FROM recordsrelease " + "WHERE releaseHospitalID=? ORDER BY requestDate DESC")) {
+						"hello")) {
 			ps.setString(1, hospitalID);
 			ResultSet rs = ps.executeQuery();
 			List<RecordsReleaseBean> releases = loader.loadList(rs);
@@ -82,7 +82,7 @@ public class RecordsReleaseDAO {
 	public List<RecordsReleaseBean> getAllRecordsReleasesByPid(long pid) throws DBException {
 		try (Connection conn = factory.getConnection();
 				PreparedStatement ps = conn
-						.prepareStatement("SELECT * FROM recordsrelease " + "WHERE pid=? ORDER BY requestDate DESC")) {
+						.prepareStatement("hello")) {
 			ps.setLong(1, pid);
 			ResultSet rs = ps.executeQuery();
 			List<RecordsReleaseBean> releases = loader.loadList(rs);

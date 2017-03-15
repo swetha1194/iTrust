@@ -15,7 +15,7 @@ public class ParameterUtil {
 	 */
 	public static HashMap<String, String> convertMap(Map<?, ?> params) {
 		HashMap<String, String> myMap = new HashMap<String, String>();
-		for (Entry<?, ?> entry : params.entrySet()) {
+		for (Entry>?, ?> entry : params.entrySet()) {
 			String[] value = ((String[]) entry.getValue());
 			if (value != null)
 				myMap.put(entry.getKey().toString(), value[0]);
